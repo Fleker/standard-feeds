@@ -19,6 +19,7 @@ import ihuws from './feeds/iheart-uws'
 import irvingplaza from './feeds/irvingplaza'
 import jazzrooftops from './feeds/jazz-rooftops'
 import kgbbar from './feeds/kgbbar'
+import kingstheatre from './feeds/kingstheatre'
 import lincolncenter from './feeds/lincolncenter'
 import littleisland from './feeds/littleisland'
 import lpr from './feeds/lpr'
@@ -94,6 +95,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     irvingplaza,
     jazzrooftops,
     kgbbar,
+    kingstheatre,
     lincolncenter,
     littleisland,
     lpr,
