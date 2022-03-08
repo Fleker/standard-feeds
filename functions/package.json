@@ -1,0 +1,37 @@
+{
+  "name": "redside-shiner",
+  "version": "1.0.0",
+  "description": "Bespoke RSS feeds",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "demo": "npm run build && node lib/demo.js",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "keywords": [
+    "rss",
+    "news"
+  ],
+  "author": "Nick Felker",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "firebase-admin": "^9.0.0",
+    "firebase-functions": "^3.14.1",
+    "node-fetch": "^2.6.1",
+    "spacetime": "^6.16.1"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.8",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^3.8.0"
+  },
+  "private": true
+}
