@@ -68,3 +68,4 @@ node_modules/
 .vscode/
 dist/
 demo.ts
+tmp
