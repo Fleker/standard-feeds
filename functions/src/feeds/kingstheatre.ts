@@ -50,7 +50,7 @@ export default {
           dtend,
           location: "King's Theatre",
           summary,
-          url: more,
+          url: `https://www.kingstheatre.com${more}`,
           description: `More Info: ${more}\n\nBuy Tickest: ${tickets}`
         })
       }

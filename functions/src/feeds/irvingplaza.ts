@@ -10,7 +10,7 @@ import { Curator, EventsFeed } from './ical'
 const defaultTimeZone = 'America/New_York'
 
 function getTime(str: string) {
-  const spacetimeDate = spacetime(str, defaultTimeZone)
+  const spacetimeDate = spacetime(str, 'Europe/London')
   return new Date(spacetimeDate.toLocalDate())
 }
 
