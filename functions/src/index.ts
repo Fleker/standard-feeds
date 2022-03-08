@@ -16,6 +16,7 @@ import courtyard from './feeds/concertsinthecourtyard'
 import downtownbrooklyn from './feeds/downtown-brooklyn'
 import foresthills from './feeds/forest-hill-stadium'
 import ihuws from './feeds/iheart-uws'
+import irvingplaza from './feeds/irvingplaza'
 import jazzrooftops from './feeds/jazz-rooftops'
 import kgbbar from './feeds/kgbbar'
 import lincolncenter from './feeds/lincolncenter'
@@ -90,6 +91,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     downtownbrooklyn,
     foresthills,
     ihuws,
+    irvingplaza,
     jazzrooftops,
     kgbbar,
     lincolncenter,
