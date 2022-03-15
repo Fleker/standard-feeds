@@ -19,13 +19,14 @@ export default {
     }
 
     // const res = await fetch.default("https://api.msg.com/v2.5/events?page=1&view=calendar&status=active,cancelled,postponed", {
-    const res = await fetch.default("https://api.msg.com/v2.5/events?page=1&view=calendar&size=100&status=active", {
+    const res = await fetch.default("https://api.msg.com/v2.5/events?page=1&view=calendar&size=50&status=active", {
       "headers": {
         "accept": "*/*",
         "accept-language": "en-US,en;q=0.9",
         "authorization": "Bearer e0554a52bf12b176ae14a9f85b60fcb2",
-        "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"91\", \"Chromium\";v=\"91\"",
+        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"99\", \"Google Chrome\";v=\"99\"",
         "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-site"
@@ -34,6 +35,10 @@ export default {
       "method": "GET",
     });
     const body = await res.json()
+    if (body.status === 'Failure') {
+      console.error(body)
+      throw new Error('Cannot make API call to MSG')
+    }
     const {results} = body
 
     for (const result of results) {

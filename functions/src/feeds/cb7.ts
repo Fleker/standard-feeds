@@ -19,7 +19,7 @@ export default {
       calendarName: 'Manhattan CB7',
       lastBuildDate: new Date(),
       icon: '',
-      link: '',
+      link: 'https://www1.nyc.gov/assets/manhattancb7/js/pages/calendar_events.js',
       defaultTimeZone,
       events: []
     }
@@ -36,7 +36,7 @@ export default {
       if (cal.toLowerCase().includes('is closed')) continue
       if (cal.toLowerCase().includes('will not meet')) continue
       const dateR = cal.match("'(\\d+?\/\\d+?\/\\d+)")
-      const nameR = cal.match('"previewArea">([\\w\\s,&:;\'\\\\]+)<br')
+      const nameR = cal.match('"previewArea">([\\w\\s,&:;\\-\'\\\\]+)<br')
       const timeR = cal.match('>(\\d+?:?\\d+?\\s?[AP]M)')
       const date = dateR![1]
       const name = nameR![1]

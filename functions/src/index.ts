@@ -9,7 +9,6 @@ import bric from './feeds/bric'
 import brooklynsteel from './feeds/brooklynsteel'
 import cb7 from './feeds/cb7'
 import cityparks from './feeds/cityparks'
-import citywinery from './feeds/citywinery'
 import columbia from './feeds/columbia'
 import coneyisland from './feeds/coney-island'
 import courtyard from './feeds/concertsinthecourtyard'
@@ -17,7 +16,6 @@ import downtownbrooklyn from './feeds/downtown-brooklyn'
 import foresthills from './feeds/forest-hill-stadium'
 import ihuws from './feeds/iheart-uws'
 import irvingplaza from './feeds/irvingplaza'
-import jazzrooftops from './feeds/jazz-rooftops'
 import kgbbar from './feeds/kgbbar'
 import kingstheatre from './feeds/kingstheatre'
 import lincolncenter from './feeds/lincolncenter'
@@ -86,7 +84,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     brooklynsteel,
     cb7,
     cityparks,
-    citywinery,
+    // citywinery,
     columbia,
     coneyisland,
     courtyard,
@@ -94,7 +92,6 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     foresthills,
     ihuws,
     irvingplaza,
-    jazzrooftops,
     kgbbar,
     kingstheatre,
     lincolncenter,
