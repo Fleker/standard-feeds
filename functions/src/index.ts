@@ -7,6 +7,7 @@ import {Curator, toIcal} from './feeds/ical'
 import barclays from './feeds/barclaycenter'
 import bric from './feeds/bric'
 import brooklynsteel from './feeds/brooklynsteel'
+import carnegiehall from './feeds/carnegiehall'
 import cb7 from './feeds/cb7'
 import cityparks from './feeds/cityparks'
 import columbia from './feeds/columbia'
@@ -14,7 +15,10 @@ import coneyisland from './feeds/coney-island'
 import courtyard from './feeds/concertsinthecourtyard'
 import downtownbrooklyn from './feeds/downtown-brooklyn'
 import foresthills from './feeds/forest-hill-stadium'
+import friendOfAFriend from './feeds/friend-of-a-friend'
+import friendzy from './feeds/friendzy'
 import ihuws from './feeds/iheart-uws'
+import intrepid from './feeds/intrepid'
 import irvingplaza from './feeds/irvingplaza'
 import kgbbar from './feeds/kgbbar'
 import kingstheatre from './feeds/kingstheatre'
@@ -27,6 +31,7 @@ import msg from './feeds/msg'
 import philharmonic from './feeds/ny-philharmonic'
 import publictheater from './feeds/publictheater'
 import summerhudson from './feeds/summer-hudson'
+import summerstage from './feeds/summerstage'
 import townhall from './feeds/thetownhall'
 import victoryden from './feeds/victoryden'
 // import theshed from './feeds/theshed'
@@ -82,6 +87,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     barclays,
     bric,
     brooklynsteel,
+    carnegiehall,
     cb7,
     cityparks,
     // citywinery,
@@ -90,7 +96,10 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     courtyard,
     downtownbrooklyn,
     foresthills,
+    friendOfAFriend,
+    friendzy,
     ihuws,
+    intrepid,
     irvingplaza,
     kgbbar,
     kingstheatre,
@@ -103,6 +112,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     philharmonic,
     publictheater,
     summerhudson,
+    summerstage,
     townhall,
     // theshed,
     victoryden,
