@@ -15,7 +15,7 @@ function getTime(str: string) {
 }
 
 async function fetchEvents(page: number) {
-  const url = `https://www.livenation.com/_next/data/3CVFUbQF4-lVz-4p01RNv/venue/KovZpaFPje/irving-plaza-events.json?event_id=k7vGFpUStkU30&discovery_id=KovZpaFPje&slug=irving-plaza&pg=${page}`
+  const url = `https://www.livenation.com/_next/data/mgH3SFexBpaOBD5GdVy2c/venue/KovZpaFPje/irving-plaza-events.json?event_id=k7vGF9A0hgzoX&discovery_id=KovZpaFPje&slug=irving-plaza&pg=${page}`
   const res = await fetch.default(url)
   const body = await res.json()
   return body.pageProps.queryResults.page.data.getEvents

@@ -37,7 +37,8 @@ export default {
       if (cal.toLowerCase().includes('will not meet')) continue
       const dateR = cal.match("'(\\d+?\/\\d+?\/\\d+)")
       const nameR = cal.match('"previewArea">([\\w\\s,&:;\\-\'\\\\]+)<br')
-      const timeR = cal.match('>(\\d+?:?\\d+?\\s?[AP]M)')
+      const timeR = cal.match('>(\\d+?:?\\d+?\\s?[AaPp][Mm])')
+      if (timeR === null || timeR.length < 1) continue; // No time found. Ignore.
       const date = dateR![1]
       const name = nameR![1]
       const time = timeR![1]

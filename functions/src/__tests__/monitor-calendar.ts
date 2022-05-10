@@ -2,6 +2,7 @@ import barclays from '../feeds/barclaycenter'
 import { Curator } from '../feeds/ical'
 import bric from '../feeds/bric'
 import brooklynsteel from '../feeds/brooklynsteel'
+import carnegiehall from '../feeds/carnegiehall'
 import cb7 from '../feeds/cb7'
 import cityparks from '../feeds/cityparks'
 import columbia from '../feeds/columbia'
@@ -9,24 +10,30 @@ import coneyisland from '../feeds/coney-island'
 import courtyard from '../feeds/concertsinthecourtyard'
 import downtownbrooklyn from '../feeds/downtown-brooklyn'
 import foresthills from '../feeds/forest-hill-stadium'
+import friendOfAFriend from '../feeds/friend-of-a-friend'
+import friendzy from '../feeds/friendzy'
 import ihuws from '../feeds/iheart-uws'
+import intrepid from '../feeds/intrepid'
 import irvingplaza from '../feeds/irvingplaza'
 import kgbbar from '../feeds/kgbbar'
 import kingstheatre from '../feeds/kingstheatre'
 // import lincolncenter from '../feeds/lincolncenter'
-import littleisland from '../feeds/littleisland'
+// import littleisland from '../feeds/littleisland'
 import lpr from '../feeds/lpr'
-// import marketwatch from '../feeds/marketwatch'
+import marketwatch from '../feeds/marketwatch'
 import msg from '../feeds/msg'
+import musichallwilliamsburg from '../feeds/musichallwilliamsburg'
 import philharmonic from '../feeds/ny-philharmonic'
 import publictheater from '../feeds/publictheater'
-// import summerhudson from '../feeds/summer-hudson'
+import summerhudson from '../feeds/summer-hudson'
+import summerstage from '../feeds/summerstage'
 import townhall from '../feeds/thetownhall'
 
 const calendarMap: Record<string, Curator> = {
   barclays,
   bric,
   brooklynsteel,
+  carnegiehall,
   cb7,
   cityparks,
   columbia,
@@ -34,18 +41,23 @@ const calendarMap: Record<string, Curator> = {
   courtyard,
   downtownbrooklyn,
   foresthills,
+  friendOfAFriend,
+  friendzy,
   ihuws,
+  intrepid,
   irvingplaza,
   kgbbar,
   kingstheatre,
   // lincolncenter,
-  littleisland,
+  // littleisland,
   lpr,
-  // marketwatch,
+  marketwatch,
   msg,
+  musichallwilliamsburg,
   philharmonic,
   publictheater,
-  // summerhudson,
+  summerhudson,
+  summerstage,
   townhall,
 }
 
