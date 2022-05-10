@@ -27,6 +27,7 @@ import littleisland from './feeds/littleisland'
 import lpr from './feeds/lpr'
 import marketwatch from './feeds/marketwatch'
 import msg from './feeds/msg'
+import musichallwilliamsburg from './feeds/musichallwilliamsburg'
 // import nypl from './feeds/nypl'
 import philharmonic from './feeds/ny-philharmonic'
 import publictheater from './feeds/publictheater'
@@ -108,6 +109,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     lpr,
     marketwatch,
     msg,
+    musichallwilliamsburg,
     // nypl,
     philharmonic,
     publictheater,

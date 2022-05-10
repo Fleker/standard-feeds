@@ -33,7 +33,6 @@ There are hosted versions of each of the existing feeds.
 
 * [Legislation on President's Desk](https://us-central1-redside-shiner.cloudfunctions.net/rss_congress)
 * [serebii.net](https://us-central1-redside-shiner.cloudfunctions.net/rss_serebii)
-* [PokéMiners](https://us-central1-redside-shiner.cloudfunctions.net/rss_pokeminers)
 
 ### Calendars
 
@@ -56,6 +55,7 @@ If you want to view the content in a web browser rather than downloading the cal
 * [Brooklyn Steel](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=brooklynsteel)
 * [NYC Parks](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=cityparks)
 * [NYC City Winery](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=citywinery)
+* [Carnegie Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=carnegiehall)
 * [Columbia](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=columbia)
 * [Coney Island](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=coneyisland)
 * [Downtown Brooklyn](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=downtownbrooklyn)
@@ -68,9 +68,11 @@ If you want to view the content in a web browser rather than downloading the cal
 * [LPR](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=lpr)
 * [MarketWatch](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=marketwatch)
 * [Madison Square Garden](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=msg)
+* [Music Hall of Williamsburg](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=musichallwilliamsburg)
 * [NYC Philharmonic](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=philharmonic)
 * [NYC Public Theater](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=publictheater)
-* [Summen on the Hudson](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerhudson)
+* [Summer on the Hudson](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerhudson)
+* [Summer Stage](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerstage)
 * [Town Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=townhall)
 * [Victory Den](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=victoryden)
 
