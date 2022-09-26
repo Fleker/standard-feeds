@@ -34,6 +34,7 @@ export default {
         .replace(/.*<br>/, '')
         .replace(/<br>.*/, '')
         .replace(/<span.*/, '')
+        .trim()
       const start = $(divs[i]).find('span.tableDataMonthsSubHeading2').text().trim()
         .replace(/–.*/, '')
       const dtstart = getTime(start)

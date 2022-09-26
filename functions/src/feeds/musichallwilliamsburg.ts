@@ -39,6 +39,7 @@ export default {
       const secondary = $(eventsByDate[i]).find('.event-support').text()
       const dtstart = getTime(`${date} 8pm`)
       const dtend = getTime(`${date} 11pm`) // Roughly
+      if (title.trim() === "") continue // Skip
       events.events.push({
         summary: title,
         description: `w/${secondary} ${url}`,

@@ -33,7 +33,7 @@
      const location = 'Webster Hall'
      for (let i = 0; i < items.length; i++) {
        const event = items[i]
-       const dtstart = getTime(event.eventDateTimeUTC)
+       const dtstart = getTime(event.eventDateTime)
        const dtend = new Date(dtstart.getTime())
        // +2:30h
        dtend.setHours(dtend.getHours() + 2)
