@@ -1,7 +1,7 @@
 {
   "name": "redside-shiner",
   "version": "1.0.0",
-  "description": "Bespoke RSS feeds",
+  "description": "Bespoke feeds",
   "scripts": {
     "build": "tsc",
     "serve": "npm run build && firebase emulators:start --only functions",

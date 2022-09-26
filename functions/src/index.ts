@@ -11,8 +11,8 @@ import carnegiehall from './feeds/carnegiehall'
 import cb7 from './feeds/cb7'
 import cityparks from './feeds/cityparks'
 import columbia from './feeds/columbia'
-import coneyisland from './feeds/coney-island'
-import courtyard from './feeds/concertsinthecourtyard'
+// import coneyisland from './feeds/coney-island'
+// import courtyard from './feeds/concertsinthecourtyard'
 import downtownbrooklyn from './feeds/downtown-brooklyn'
 import foresthills from './feeds/forest-hill-stadium'
 import friendOfAFriend from './feeds/friend-of-a-friend'
@@ -36,6 +36,7 @@ import summerstage from './feeds/summerstage'
 import townhall from './feeds/thetownhall'
 import victoryden from './feeds/victoryden'
 // import theshed from './feeds/theshed'
+import websterhall from './feeds/websterhall'
 
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
@@ -93,8 +94,8 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     cityparks,
     // citywinery,
     columbia,
-    coneyisland,
-    courtyard,
+    // coneyisland,
+    // courtyard,
     downtownbrooklyn,
     foresthills,
     friendOfAFriend,
@@ -118,6 +119,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     townhall,
     // theshed,
     victoryden,
+    websterhall,
   }
   const validCalendars = Object.keys(calendarMap)
   const events: any[] = []
