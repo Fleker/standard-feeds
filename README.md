@@ -105,27 +105,7 @@ applications:
 npm install --save @fleker/standard-feeds
 ```
 
-From there, you can import various objects with their respective functions
-
-```typescript
-import {Todo, todoToString, toString} from '@fleker/standard-feeds'
-const todo = {
-  summary: 'Clean the gutters',
-  // ...
-}
-
-console.log(todoToString(todo)) // Prints one TODO
-console.log(toString('My Todo List', {
-  todo: [todo],
-  events: undefined
-})) // Prints all TODOs, Events, and more (once added)
-```
-
-It supports
-- VCALENDAR
-  - VEVENT
-  - VTODO
-- RSS
+See lib/README.md for more information on the APIs and their usage.
 
 ### Testing
 

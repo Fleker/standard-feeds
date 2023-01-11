@@ -4,6 +4,7 @@ import * as C from "./vcalendar";
 import * as E from "./vevent";
 import * as T from "./vtodo";
 import * as R from "./rss";
+import * as M from './description-modules';
 
 export const sanitize = S.default
 
@@ -15,3 +16,8 @@ export const todoToString = T.todoToString
 
 export type RssFeed = R.RssFeed
 export const toRss = R.toRss
+
+export type Module = M.Module
+export type ModuleParams = M.ModuleParams
+export const encodeModule = M.encodeModule
+export const parseModule = M.parseModule
