@@ -60,6 +60,7 @@ If you want to view the content in a web browser rather than downloading the cal
 * [Coney Island](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=coneyisland)
 * [Downtown Brooklyn](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=downtownbrooklyn)
 * [Forest Hills Stadium](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=foresthills)
+* [Hudson Yards](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=hudsonyards)
 * [Irving Plaza](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=irvingplaza)
 * [KGB Bar](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=kgbbar)
 * [King's Theatre](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=kingstheatre)
@@ -94,6 +95,37 @@ RSS feeds depend on `functions/src/feeds/rss.ts`.
 Each separate feed exists as an independent module. All modules are imported into `functions/src/index.ts` and exported using Firebase Functions.
 
 Whenever a function is called, the page is grabbed at that moment. There is no caching layer. At scale, there should be.
+
+## Library
+
+You can install the underlying types to use the standard objects in your own
+applications:
+
+```
+npm install --save @fleker/standard-feeds
+```
+
+From there, you can import various objects with their respective functions
+
+```typescript
+import {Todo, todoToString, toString} from '@fleker/standard-feeds'
+const todo = {
+  summary: 'Clean the gutters',
+  // ...
+}
+
+console.log(todoToString(todo)) // Prints one TODO
+console.log(toString('My Todo List', {
+  todo: [todo],
+  events: undefined
+})) // Prints all TODOs, Events, and more (once added)
+```
+
+It supports
+- VCALENDAR
+  - VEVENT
+  - VTODO
+- RSS
 
 ### Testing
 

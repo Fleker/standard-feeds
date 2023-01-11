@@ -69,3 +69,5 @@ node_modules/
 dist/
 demo.ts
 tmp
+lib/lib
+lib/dist
