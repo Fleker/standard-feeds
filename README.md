@@ -50,6 +50,7 @@ If you want to view the content in a web browser rather than downloading the cal
 
 #### Calendars
 
+* [Arthouse Hotel](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=arthouse)
 * [Barclays Center](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=barclays)
 * [BRIC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=bric)
 * [Brooklyn Steel](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=brooklynsteel)

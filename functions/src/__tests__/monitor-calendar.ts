@@ -1,3 +1,4 @@
+import arthouse from './feeds/arthouse-hotel'
 import barclays from '../feeds/barclaycenter'
 import { Curator } from '../feeds/ical'
 import bric from '../feeds/bric'
@@ -31,6 +32,7 @@ import summerstage from '../feeds/summerstage'
 import townhall from '../feeds/thetownhall'
 
 const calendarMap: Record<string, Curator> = {
+  arthouse,
   barclays,
   bric,
   brooklynsteel,

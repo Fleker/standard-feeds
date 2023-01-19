@@ -4,6 +4,7 @@ import pokeminers from './feeds/pokeminers'
 import serebii from './feeds/serebii'
 
 import {Curator, toString} from './feeds/ical'
+import arthouse from './feeds/arthouse-hotel'
 import barclays from './feeds/barclaycenter'
 import bric from './feeds/bric'
 import brooklynsteel from './feeds/brooklynsteel'
@@ -88,6 +89,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     return query
   })()
   const calendarMap: Record<string, Curator> = {
+    arthouse,
     barclays,
     bric,
     brooklynsteel,
