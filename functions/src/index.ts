@@ -3,7 +3,7 @@ import congress from './feeds/congress'
 import pokeminers from './feeds/pokeminers'
 import serebii from './feeds/serebii'
 
-import {Curator, toIcal} from './feeds/ical'
+import {Curator, toString} from './feeds/ical'
 import barclays from './feeds/barclaycenter'
 import bric from './feeds/bric'
 import brooklynsteel from './feeds/brooklynsteel'
@@ -17,6 +17,7 @@ import downtownbrooklyn from './feeds/downtown-brooklyn'
 import foresthills from './feeds/forest-hill-stadium'
 import friendOfAFriend from './feeds/friend-of-a-friend'
 import friendzy from './feeds/friendzy'
+import hudsonyards from './feeds/hudsonyards'
 import ihuws from './feeds/iheart-uws'
 import intrepid from './feeds/intrepid'
 import irvingplaza from './feeds/irvingplaza'
@@ -24,6 +25,7 @@ import kgbbar from './feeds/kgbbar'
 import kingstheatre from './feeds/kingstheatre'
 import lincolncenter from './feeds/lincolncenter'
 import littleisland from './feeds/littleisland'
+import livecode from './feeds/livecode-nyc'
 import lpr from './feeds/lpr'
 import marketwatch from './feeds/marketwatch'
 import msg from './feeds/msg'
@@ -100,6 +102,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     foresthills,
     friendOfAFriend,
     friendzy,
+    hudsonyards,
     ihuws,
     intrepid,
     irvingplaza,
@@ -107,6 +110,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     kingstheatre,
     lincolncenter,
     littleisland,
+    livecode,
     lpr,
     marketwatch,
     msg,
@@ -138,12 +142,14 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     events.push(...result.events.filter(e => e.dtstart > lastMonth.toLocalDate()))
   })
 
-  res.send(await toIcal({
-    calendarName: 'Events Calendar',
-    icon: '',
-    link: '',
-    lastBuildDate: new Date(),
-    defaultTimeZone: 'America/New_York',
-    events,
+  res.send(toString('Nick Felker//NONSGML Redside Shiner//EN', {
+    events: {
+      calendarName: 'Events Calendar',
+      icon: '',
+      link: '',
+      lastBuildDate: new Date(),
+      defaultTimeZone: 'America/New_York',
+      events,
+    }
   }))
 })

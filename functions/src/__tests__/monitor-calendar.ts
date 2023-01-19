@@ -19,6 +19,7 @@ import kgbbar from '../feeds/kgbbar'
 import kingstheatre from '../feeds/kingstheatre'
 // import lincolncenter from '../feeds/lincolncenter'
 // import littleisland from '../feeds/littleisland'
+import livecode from '../feeds/livecode-nyc'
 import lpr from '../feeds/lpr'
 import marketwatch from '../feeds/marketwatch'
 import msg from '../feeds/msg'
@@ -50,6 +51,7 @@ const calendarMap: Record<string, Curator> = {
   kingstheatre,
   // lincolncenter,
   // littleisland,
+  livecode,
   lpr,
   marketwatch,
   msg,

@@ -66,6 +66,7 @@ If you want to view the content in a web browser rather than downloading the cal
 * [King's Theatre](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=kingstheatre)
 * [Lincoln Center](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=lincolncenter)
 * [Little Island](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=littleisland)
+* [Live Code NYC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=livecode)
 * [LPR](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=lpr)
 * [MarketWatch](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=marketwatch)
 * [Madison Square Garden](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=msg)
