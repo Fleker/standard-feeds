@@ -4,6 +4,7 @@ import { Curator } from '../feeds/ical'
 import bric from '../feeds/bric'
 import brooklynsteel from '../feeds/brooklynsteel'
 import carnegiehall from '../feeds/carnegiehall'
+import caveat from '../feeds/caveat'
 import cb7 from '../feeds/cb7'
 import cityparks from '../feeds/cityparks'
 import columbia from '../feeds/columbia'
@@ -37,6 +38,7 @@ const calendarMap: Record<string, Curator> = {
   bric,
   brooklynsteel,
   carnegiehall,
+  caveat,
   cb7,
   cityparks,
   columbia,
