@@ -50,6 +50,7 @@ If you want to view the content in a web browser rather than downloading the cal
 
 #### Calendars
 
+* [Angular NYC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=angularnyc)
 * [Arthouse Hotel](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=arthouse)
 * [Barclays Center](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=barclays)
 * [BRIC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=bric)
@@ -61,7 +62,11 @@ If you want to view the content in a web browser rather than downloading the cal
 * [Columbia](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=columbia)
 * [Coney Island](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=coneyisland)
 * [Downtown Brooklyn](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=downtownbrooklyn)
+* [Flutter New York](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=flutternyc)
 * [Forest Hills Stadium](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=foresthills)
+* [Google Developer Group - Hoboken](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=gdghoboken)
+* [Google Developer Group - NYC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=gdgnyc)
+* [Google Developer Group - Cloud - NYC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=gdgcloudnyc)
 * [Hudson Yards](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=hudsonyards)
 * [Irving Plaza](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=irvingplaza)
 * [KGB Bar](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=kgbbar)
@@ -73,12 +78,14 @@ If you want to view the content in a web browser rather than downloading the cal
 * [MarketWatch](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=marketwatch)
 * [Madison Square Garden](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=msg)
 * [Music Hall of Williamsburg](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=musichallwilliamsburg)
+* [New Liberals NYC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=newliberalsnyc)
 * [NYC Philharmonic](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=philharmonic)
 * [NYC Public Theater](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=publictheater)
 * [Summer on the Hudson](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerhudson)
 * [Summer Stage](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerstage)
 * [Town Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=townhall)
 * [Victory Den](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=victoryden)
+* [NYC Voice Assistant Meetup](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=voicenyc)
 * [Webster Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=websterhall)
 
 ## Setup

@@ -30,6 +30,7 @@ import littleisland from './feeds/littleisland'
 import livecode from './feeds/livecode-nyc'
 import lpr from './feeds/lpr'
 import marketwatch from './feeds/marketwatch'
+import meetup from './feeds/meetup'
 import msg from './feeds/msg'
 import musichallwilliamsburg from './feeds/musichallwilliamsburg'
 // import nypl from './feeds/nypl'
@@ -90,6 +91,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     return query
   })()
   const calendarMap: Record<string, Curator> = {
+    angularnyc: meetup('angularnyc')
     arthouse,
     barclays,
     bric,
@@ -103,9 +105,13 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     // coneyisland,
     // courtyard,
     downtownbrooklyn,
+    flutternyc: meetup('flutter-nyc'),
     foresthills,
     friendOfAFriend,
     friendzy,
+    gdghoboken: meetup('google-developer-group-gdg-hoboken'),
+    gdgnyc: meetup('gdgnyc'),
+    gdgcloudnyc: meetup('cloudnyc'),
     hudsonyards,
     ihuws,
     intrepid,
@@ -127,6 +133,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     townhall,
     // theshed,
     victoryden,
+    voicenyc: meetup('nyc-voice-assistant-meetup')
     websterhall,
   }
   const validCalendars = Object.keys(calendarMap)
