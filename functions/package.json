@@ -21,7 +21,7 @@
   ],
   "author": "Nick Felker",
   "license": "Apache-2.0",
-  "main": "lib/index.js",
+  "main": "lib/functions/src/index.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
     "firebase-admin": "^10.0.0",

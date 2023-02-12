@@ -16,6 +16,7 @@ import columbia from './feeds/columbia'
 // import coneyisland from './feeds/coney-island'
 // import courtyard from './feeds/concertsinthecourtyard'
 import downtownbrooklyn from './feeds/downtown-brooklyn'
+import eventbrite from './feeds/eventbrite'
 import foresthills from './feeds/forest-hill-stadium'
 import friendOfAFriend from './feeds/friend-of-a-friend'
 import friendzy from './feeds/friendzy'
@@ -91,9 +92,10 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     return query
   })()
   const calendarMap: Record<string, Curator> = {
-    angularnyc: meetup('angularnyc')
+    angularnyc: meetup('angularnyc'),
     arthouse,
     barclays,
+    bellhouse: eventbrite('the-bell-house-17899492469'),
     bric,
     brooklynsteel,
     carnegiehall,
@@ -125,6 +127,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     marketwatch,
     msg,
     musichallwilliamsburg,
+    nerdnite: eventbrite('littlefield-18046024060'),
     // nypl,
     philharmonic,
     publictheater,
@@ -133,7 +136,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     townhall,
     // theshed,
     victoryden,
-    voicenyc: meetup('nyc-voice-assistant-meetup')
+    voicenyc: meetup('nyc-voice-assistant-meetup'),
     websterhall,
   }
   const validCalendars = Object.keys(calendarMap)
