@@ -1,6 +1,6 @@
 {
   "name": "@fleker/standard-feeds",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Standard types as objects and string transformations",
   "main": "dist/index.js",
   "types": "src/index.ts",

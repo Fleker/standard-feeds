@@ -15,6 +15,7 @@ export type Todo = T.Todo
 export const todoToString = T.todoToString
 
 export type RssFeed = R.RssFeed
+export type PodcastFeed = R.PodcastFeed
 export type RssArticle = R.RssArticle
 export type RssAudio = R.RssAudio
 export const toRss = R.toRss
