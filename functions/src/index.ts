@@ -79,9 +79,15 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
   if (req.query.debug) {
     res.setHeader('content-type', 'text/plain')
   }
+  if (req.query.json) {
+    res.setHeader('content-type', 'text/plain')
+  }
   // https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=all&c[]=lincolncenter
   const calendarsToGrab = (() => {
-    const query = req.query.c as string[]
+    const query = (() => {
+      if (Array.isArray(req.query.c)) return req.query.c
+      return (req.query.c as string).split(',')
+    })() as string[]
     // Here we hard-code presets
     if (query[0] === 'nyc-uws') {
       return [
@@ -140,6 +146,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     websterhall,
   }
   const validCalendars = Object.keys(calendarMap)
+  const validCalendarsRead: string[] = []
   const events: any[] = []
   const promises = []
 
@@ -147,6 +154,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     const validCal = validCalendars[i]
     if (calendarsToGrab.includes(validCal) || calendarsToGrab[0] === 'all') {
       promises.push(calendarMap[validCal].obtainFeed())
+      validCalendarsRead.push(validCal)
     }
   }
   const results = await Promise.all(promises)
@@ -156,14 +164,21 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     events.push(...result.events.filter(e => e.dtstart > lastMonth.toLocalDate()))
   })
 
-  res.send(toString('Nick Felker//NONSGML Redside Shiner//EN', {
-    events: {
-      calendarName: 'Events Calendar',
-      icon: '',
-      link: '',
-      lastBuildDate: new Date(),
-      defaultTimeZone: 'America/New_York',
+  if (req.query.json) {
+    res.send({
+      validCalendarsRead,
       events,
-    }
-  }))
+    })
+  } else {
+    res.send(toString('Nick Felker//NONSGML Redside Shiner//EN', {
+      events: {
+        calendarName: 'Events Calendar',
+        icon: '',
+        link: '',
+        lastBuildDate: new Date(),
+        defaultTimeZone: 'America/New_York',
+        events,
+      }
+    }))
+  }
 })
