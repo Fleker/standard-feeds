@@ -116,6 +116,7 @@ export const toRss = (feed: RssFeed|PodcastFeed) => {
       data += feed.itunesExplicit ? `<itunes:explicit>Yes</itunes:explicit>` :
         '<itunes:explicit>No</itunes:explicit>'
     }
+    return data
   })()
   const objToFeed = (item: RssArticle | RssAudio) => {
     if ('audio' in item) {

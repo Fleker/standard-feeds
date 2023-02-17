@@ -8,6 +8,7 @@
     "strict": false,
     "target": "ES6",
     "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types"]
   },
   "exclude": [
     "node_modules",

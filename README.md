@@ -81,6 +81,7 @@ If you want to view the content in a web browser rather than downloading the cal
 * [New Liberals NYC](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=newliberalsnyc)
 * [NYC Philharmonic](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=philharmonic)
 * [NYC Public Theater](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=publictheater)
+* [Pokémon League (Near NYC)](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=pokemonleague)
 * [Summer on the Hudson](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerhudson)
 * [Summer Stage](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerstage)
 * [Town Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=townhall)

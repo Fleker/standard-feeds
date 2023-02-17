@@ -35,6 +35,7 @@ import msg from './feeds/msg'
 import musichallwilliamsburg from './feeds/musichallwilliamsburg'
 // import nypl from './feeds/nypl'
 import philharmonic from './feeds/ny-philharmonic'
+import pokemonleague from './feeds/pokemonleague'
 import publictheater from './feeds/publictheater'
 import summerhudson from './feeds/summer-hudson'
 import summerstage from './feeds/summerstage'
@@ -91,7 +92,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     return query
   })()
   const calendarMap: Record<string, Curator> = {
-    angularnyc: meetup('angularnyc')
+    angularnyc: meetup('angularnyc'),
     arthouse,
     barclays,
     bric,
@@ -127,13 +128,14 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     musichallwilliamsburg,
     // nypl,
     philharmonic,
+    pokemonleague,
     publictheater,
     summerhudson,
     summerstage,
     townhall,
     // theshed,
     victoryden,
-    voicenyc: meetup('nyc-voice-assistant-meetup')
+    voicenyc: meetup('nyc-voice-assistant-meetup'),
     websterhall,
   }
   const validCalendars = Object.keys(calendarMap)
