@@ -1,4 +1,4 @@
-import arthouse from './feeds/arthouse-hotel'
+import arthouse from '../feeds/arthouse-hotel'
 import barclays from '../feeds/barclaycenter'
 import { Curator } from '../feeds/ical'
 import bric from '../feeds/bric'
@@ -10,7 +10,9 @@ import cityparks from '../feeds/cityparks'
 import columbia from '../feeds/columbia'
 import coneyisland from '../feeds/coney-island'
 import courtyard from '../feeds/concertsinthecourtyard'
+import django from '../feeds/django'
 import downtownbrooklyn from '../feeds/downtown-brooklyn'
+import elsewhere from '../feeds/elsewhere'
 import foresthills from '../feeds/forest-hill-stadium'
 import friendOfAFriend from '../feeds/friend-of-a-friend'
 import friendzy from '../feeds/friendzy'
@@ -44,7 +46,9 @@ const calendarMap: Record<string, Curator> = {
   columbia,
   coneyisland,
   courtyard,
+  django,
   downtownbrooklyn,
+  elsewhere,
   foresthills,
   friendOfAFriend,
   friendzy,

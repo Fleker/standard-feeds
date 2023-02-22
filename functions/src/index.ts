@@ -15,7 +15,9 @@ import cityparks from './feeds/cityparks'
 import columbia from './feeds/columbia'
 // import coneyisland from './feeds/coney-island'
 // import courtyard from './feeds/concertsinthecourtyard'
+import django from './feeds/django'
 import downtownbrooklyn from './feeds/downtown-brooklyn'
+import elsewhere from './feeds/elsewhere'
 import eventbrite from './feeds/eventbrite'
 import foresthills from './feeds/forest-hill-stadium'
 import friendOfAFriend from './feeds/friend-of-a-friend'
@@ -47,6 +49,7 @@ import websterhall from './feeds/websterhall'
 
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
+import { TodoCurator } from '../../lib/src/vtodo'
 admin.initializeApp()
 
 const spacetime = require('spacetime')
@@ -113,7 +116,9 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     columbia,
     // coneyisland,
     // courtyard,
+    django,
     downtownbrooklyn,
+    elsewhere,
     flutternyc: meetup('flutter-nyc'),
     foresthills,
     friendOfAFriend,
@@ -181,6 +186,53 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
         defaultTimeZone: 'America/New_York',
         events,
       }
+    }))
+  }
+})
+
+export const vtodo_fetch = functions.https.onRequest(async (req, res) => {
+  res.setHeader('content-type', 'text/calendar')
+  if (req.query.debug) {
+    res.setHeader('content-type', 'text/plain')
+  }
+  if (req.query.json) {
+    res.setHeader('content-type', 'text/plain')
+  }
+  // https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=all&c[]=lincolncenter
+  const todoListsToGrab = (() => {
+    const query = (() => {
+      if (Array.isArray(req.query.t)) return req.query.t
+      return (req.query.t as string).split(',')
+    })() as string[]
+    return query
+  })()
+  const todoMap: Record<string, TodoCurator> = {
+  }
+  const validTodoLists = Object.keys(todoMap)
+  const validTodoListsRead: string[] = []
+  const todos: any[] = []
+  const promises = []
+
+  for (let i = 0; i < validTodoLists.length; i++) {
+    const validCal = validTodoLists[i]
+    if (todoListsToGrab.includes(validCal) || todoListsToGrab[0] === 'all') {
+      promises.push(todoMap[validCal].obtainFeed())
+      validTodoListsRead.push(validCal)
+    }
+  }
+  const results = await Promise.all(promises)
+  results.forEach(result => {
+    todos.push(...result)
+  })
+
+  if (req.query.json) {
+    res.send({
+      validTodoListsRead,
+      todos,
+    })
+  } else {
+    res.send(toString('Nick Felker//NONSGML Redside Shiner//EN', {
+      todo: todos,
     }))
   }
 })
