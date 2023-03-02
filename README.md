@@ -89,6 +89,7 @@ If you want to view the content in a web browser rather than downloading the cal
 * [Summer on the Hudson](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerhudson)
 * [Summer Stage](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=summerstage)
 * [Town Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=townhall)
+* [Triad Theater](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=triadtheater)
 * [Victory Den](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=victoryden)
 * [NYC Voice Assistant Meetup](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=voicenyc)
 * [Webster Hall](https://us-central1-redside-shiner.cloudfunctions.net/ical_fetch?c[]=websterhall)

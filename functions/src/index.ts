@@ -43,6 +43,7 @@ import publictheater from './feeds/publictheater'
 import summerhudson from './feeds/summer-hudson'
 import summerstage from './feeds/summerstage'
 import townhall from './feeds/thetownhall'
+import triadtheater from './feeds/triad-theater'
 import victoryden from './feeds/victoryden'
 // import theshed from './feeds/theshed'
 import websterhall from './feeds/websterhall'
@@ -147,6 +148,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     summerhudson,
     summerstage,
     townhall,
+    triadtheater,
     // theshed,
     victoryden,
     voicenyc: meetup('nyc-voice-assistant-meetup'),
