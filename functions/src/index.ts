@@ -4,6 +4,7 @@ import pokeminers from './feeds/pokeminers'
 import serebii from './feeds/serebii'
 
 import {Curator, toString} from './feeds/ical'
+import angelika from './feeds/angelika'
 import arthouse from './feeds/arthouse-hotel'
 import barclays from './feeds/barclaycenter'
 import bric from './feeds/bric'
@@ -20,8 +21,10 @@ import downtownbrooklyn from './feeds/downtown-brooklyn'
 import elsewhere from './feeds/elsewhere'
 import eventbrite from './feeds/eventbrite'
 import foresthills from './feeds/forest-hill-stadium'
+import freehold from './feeds/freehold'
 import friendOfAFriend from './feeds/friend-of-a-friend'
 import friendzy from './feeds/friendzy'
+import grimmales from './feeds/grimmales'
 import hudsonyards from './feeds/hudsonyards'
 import ihuws from './feeds/iheart-uws'
 import intrepid from './feeds/intrepid'
@@ -36,17 +39,22 @@ import marketwatch from './feeds/marketwatch'
 import meetup from './feeds/meetup'
 import msg from './feeds/msg'
 import musichallwilliamsburg from './feeds/musichallwilliamsburg'
+import nyminute from './feeds/nyminute'
 // import nypl from './feeds/nypl'
 import philharmonic from './feeds/ny-philharmonic'
 import pokemonleague from './feeds/pokemonleague'
 import publictheater from './feeds/publictheater'
 import summerhudson from './feeds/summer-hudson'
 import summerstage from './feeds/summerstage'
+import sundaesauuce from './feeds/sundaesauuce'
+import timeoutmarket from './feeds/timeoutmarket'
 import townhall from './feeds/thetownhall'
 import triadtheater from './feeds/triad-theater'
 import victoryden from './feeds/victoryden'
 // import theshed from './feeds/theshed'
+import wallacelounge from './feeds/wallacelounge'
 import websterhall from './feeds/websterhall'
+import wonderville from './feeds/wonderville'
 
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
@@ -103,10 +111,12 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     return query
   })()
   const calendarMap: Record<string, Curator> = {
+    angelika,
     angularnyc: meetup('angularnyc'),
     arthouse,
     barclays,
     bellhouse: eventbrite('the-bell-house-17899492469'),
+    beersdata: meetup('advertising-marketing-analysts'),
     bric,
     brooklynsteel,
     carnegiehall,
@@ -117,22 +127,25 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     columbia,
     // coneyisland,
     // courtyard,
+    disconap: eventbrite('disco-nap-49115265943'),
     django,
     downtownbrooklyn,
     elsewhere,
     flutternyc: meetup('flutter-nyc'),
     foresthills,
+    freehold,
     friendOfAFriend,
     friendzy,
     gdghoboken: meetup('google-developer-group-gdg-hoboken'),
     gdgnyc: meetup('gdgnyc'),
     gdgcloudnyc: meetup('cloudnyc'),
+    grimmales,
     hudsonyards,
     ihuws,
     intrepid,
     irvingplaza,
     kgbbar,
-    kingstheatre,
+    kingstheatre, 
     lincolncenter,
     littleisland,
     livecode,
@@ -140,19 +153,26 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     marketwatch,
     msg,
     musichallwilliamsburg,
+    mycheekydate: eventbrite('mycheekydate-11281652610'),
     nerdnite: eventbrite('littlefield-18046024060'),
+    nyminute,
     // nypl,
     philharmonic,
     pokemonleague,
     publictheater,
     summerhudson,
     summerstage,
+    sundaesauuce,
+    timeoutmarket,
     townhall,
     triadtheater,
     // theshed,
+    ukraineinstitute: eventbrite('ukrainian-institute-of-america-8458592558'),
     victoryden,
     voicenyc: meetup('nyc-voice-assistant-meetup'),
+    wallacelounge,
     websterhall,
+    wonderville,
   }
   const validCalendars = Object.keys(calendarMap)
   const validCalendarsRead: string[] = []
