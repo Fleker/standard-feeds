@@ -1,3 +1,3 @@
-import {toRss, RssFeed, CurationOptions, Curator} from '../../../lib/src/rss'
+import {toRss, RssArticle, RssFeed, CurationOptions, Curator} from '../../../lib/src/rss'
 
-export {toRss, RssFeed, CurationOptions, Curator}
+export {toRss, RssArticle, RssFeed, CurationOptions, Curator}

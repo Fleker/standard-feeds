@@ -1,12 +1,15 @@
-import {toRss} from './feeds/rss'
+import {RssFeed, toRss} from './feeds/rss'
+import * as Rss from './feeds/rss'
 import congress from './feeds/congress'
 import pokeminers from './feeds/pokeminers'
 import serebii from './feeds/serebii'
+import glassboro from './feeds/glassboro-govt'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
 import arthouse from './feeds/arthouse-hotel'
 import barclays from './feeds/barclaycenter'
+import bookclubbar from './feeds/bookclubbar'
 import bric from './feeds/bric'
 import brooklynsteel from './feeds/brooklynsteel'
 import carnegiehall from './feeds/carnegiehall'
@@ -87,6 +90,53 @@ export const rss_pokeminers = functions.https.onRequest(async (req, res) => {
   res.send(await toRss(await pokeminers.obtainFeed()))
 })
 
+export const rss_fetch = functions.https.onRequest(async (req, res) => {
+  res.setHeader('content-type', 'application/rss+xml')
+  if (req.query.debug) {
+    res.setHeader('content-type', 'text/plain')
+  }
+  const feedsToGrab = (() => {
+    const query = (() => {
+      if (Array.isArray(req.query.f)) return req.query.f
+      return (req.query.f as string).split(',')
+    })() as string[]
+    return query
+  })()
+  // https://us-central1-redside-shiner.cloudfunctions.net/rss_fetch?f[]=glassboro&f[]=...
+  const feedMap: Record<string, Rss.Curator> = {
+    glassboro: glassboro('glassboro'),
+    glassboroboe: glassboro('glassboroboe'),
+    rowan: glassboro('rowan'),
+  }
+  const validFeeds = Object.keys(feedMap)
+  const validFeedsRead: string[] = []
+  const promises: Promise<RssFeed>[] = []
+
+  for (let i = 0; i < validFeeds.length; i++) {
+    const validFeed = validFeeds[i]
+    if (feedsToGrab.includes(validFeed) || feedsToGrab[0] === 'all') {
+      promises.push(feedMap[validFeed].obtainFeed())
+      validFeedsRead.push(validFeed)
+    }
+  }
+  const results = await Promise.all(promises)
+  const feed: RssFeed = results[0]
+  // feed.entries = feed.entries.filter(e => e.pubDate.getFullYear() > 1970)
+
+  if (req.query.json) {
+    res.send({
+      validFeedsRead,
+      feed,
+    })
+  } else {
+    for (const a of feed.entries) {
+      console.log(a)
+    }
+    console.info(feed)
+    res.send(toRss(feed))
+  }
+})
+
 export const ical_fetch = functions.https.onRequest(async (req, res) => {
   res.setHeader('content-type', 'text/calendar')
   if (req.query.debug) {
@@ -117,12 +167,14 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     barclays,
     bellhouse: eventbrite('the-bell-house-17899492469'),
     beersdata: meetup('advertising-marketing-analysts'),
+    bookclubbar,
     bric,
     brooklynsteel,
     carnegiehall,
     caveat,
     cb7,
     cityparks,
+    closer: eventbrite('closer-53511938713'),
     // citywinery,
     columbia,
     // coneyisland,

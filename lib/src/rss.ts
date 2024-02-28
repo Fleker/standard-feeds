@@ -24,6 +24,7 @@ export interface RssAudio {
   itunesImage: string
   itunesExplicit?: boolean
   itunesAuthor?: string
+  itunesSummary?: string
 }
 
 /**
@@ -39,6 +40,30 @@ export interface RssFeed {
   entries: (RssArticle | RssAudio)[]
 }
 
+// https://podcasters.apple.com/support/1691-apple-podcasts-categories
+export type ITunesSubcategory = 'Books' | 'Design' | 'Fashion &amp; Beauty' | 'Food' | 'Performing Arts' | 'Visual Arts'
+  | 'Careers' | 'Entrepreneurship' | 'Investing' | 'Management' | 'Marketing' | 'Non-Profit'
+  | 'Comedy Interviews' | 'Improv' | 'Stand-Up'
+  | 'Courses' | 'How To' | 'Language Learning' | 'Self-Improvement'
+  | 'Comedy Fiction' | 'Drama' | 'Science Fiction'
+  | 'Alternative Health' | 'Fitness' | 'Medicine' | 'Mental Health' | 'Nutrition' | 'Sexuality'
+  | 'Education for Kids' | 'Parenting' | 'Pets &amp; Animals' | 'Stories for Kids'
+  | 'Animation &amp; Manga' | 'Automotive' | 'Aviation' | 'Crafts' | 'Games' | 'Hobbies' | 'Home &amp; Garden' | 'Video Games'
+  | 'Music Commentary' | 'Music History' | 'Music Interviews'
+  | 'Business News' | 'Daily News' | 'Entertainment News' | 'News Commentary' | 'Politics' | 'Sports News' | 'Tech News'
+  | 'Buddhism' | 'Christianity' | 'Hinduism' | 'Islam' | 'Judaism' | 'Religion' | 'Spirituality'
+  | 'Astronomy' | 'Chemistry' | 'Earth Sciences' | 'Life Sciences' | 'Mathematics' | 'Natural Sciences' | 'Nature' | 'Physics' | 'Social Sciences'
+  | 'Documentary' | 'Personal Journals' | 'Philosophy' | 'Places &amp; Travel' | 'Relationships'
+  | 'Baseball' | 'Basketball' | 'Cricket' | 'Fantasy Sports' | 'Football' | 'Golf' | 'Hockey' | 'Rugby' | 'Soccer' | 'Swimming' | 'Tennis' | 'Volleyball' | 'Wilderness' | 'Wrestling'
+  | 'After Shows' | 'Film History' | 'Film Interviews' | 'Film Reviews' | 'TV Reviews'
+
+export type ITunesCategory = 'Art' | 'Business' | 'Comedy'
+  | 'Education' | 'Fiction' | 'Government' | 'History' | 'Health &amp; Fitness'
+  | 'Kids &amp; Family' | 'Leisure' | 'Music' | 'News'
+  | 'Religion &amp; Spirituality' | 'Science' | 'Society &amp; Culture' 
+  | 'Sports' | 'Technology' | 'True Crime' | 'TV &amp; Film'
+
+
 export interface PodcastFeed extends RssFeed {
   author: string
   language?: string
@@ -49,7 +74,7 @@ export interface PodcastFeed extends RssFeed {
     email: string
   }
   itunesExplicit?: boolean
-  itunesCategory?: string[]
+  itunesCategory?: Partial<Record<ITunesCategory, ITunesSubcategory[]>>
   itunesImage?: string
 }
 
@@ -102,14 +127,23 @@ export const toRss = (feed: RssFeed|PodcastFeed) => {
       data += `<itunes:subtitle>${feed.itunesSubtitle}</itunes:subtitle>\n`
     }
     if ('itunesImage' in feed) {
-      data += `<itunes:image>${feed.itunesImage}</itunes:image>\n`
+      data += `<itunes:image href="${feed.itunesImage}"/>\n`
     }
     data += `<itunes:block>yes</itunes:block>\n`
     data += `<itunes:type>episodic</itunes:type>\n`
     if ('itunesCategory' in feed) {
-      feed.itunesCategory?.forEach(cat => {
-        data += `<itunes:category>${cat}</itunes:category>\n`
-      })
+      for (const [cat, subcat] of Object.entries(feed.itunesCategory!)) {
+        if (!subcat.length) {
+          data += `<itunes:category text="${cat}" />`
+        } else {
+          data += `<itunes:category text="${cat}">`
+          subcat.forEach(s => {
+            data += `  <itunes:category text="${s}" />`
+          })
+          data += `</itunes:category>`
+          
+        }
+      }
     }
     if ('itunesExplicit' in feed) {
       data += feed.itunesExplicit ? `<itunes:explicit>Yes</itunes:explicit>` :
@@ -118,19 +152,21 @@ export const toRss = (feed: RssFeed|PodcastFeed) => {
     return data
   })()
   const objToFeed = (item: RssArticle | RssAudio) => {
+    const pubDate = isNaN(item.pubDate.getTime()) ? new Date('January 1, 1970') : item.pubDate
     if ('audio' in item) {
       // is audio
       return `<item>
     <title><![CDATA[${item.title}]]></title>
     <description><![CDATA[${item.description}]]></description>
     <link>${item.link}</link>
-    <guid isPermalink="false">${item.link}?${item.guid}</guid>
+    <guid isPermalink="false">${item.guid}</guid>
     <pubDate>${item.pubDate.toUTCString()}</pubDate>
     <dc:creator>
       <![CDATA[${item.authors}]]>
     </dc:creator>
     <enclosure url="${item.audio.url}" length="${item.audio.bytes}" type="${item.audio.format}"/>
     ${item.itunesAuthor ? `<itunes:author>${item.itunesAuthor}</itunes:author>` : ''}
+    ${item.itunesSummary ? `<itunes:summary>${item.itunesSummary}</itunes:summary>` : ''}
     ${item.itunesDuration ? `<itunes:duration>${item.itunesDuration}</itunes:duration>` : ''}
     ${item.itunesImage ? `<itunes:image href="${item.itunesImage}"/>` : ''}
     ${item.itunesExplicit ? `<itunes:explicit>Yes</itunes:explicit>` : '<itunes:explicit>No</itunes:explicit>'}
@@ -144,9 +180,9 @@ export const toRss = (feed: RssFeed|PodcastFeed) => {
     <link>${item.link}</link>
     <guid isPermalink="true">${item.link}?${item.guid}</guid>
     <id>${item.link}?${item.guid}</id>
-    <updated>${item.pubDate.toISOString()}</updated>
-    <published>${item.pubDate.toISOString()}</published>
-    <pubDate>${item.pubDate.toUTCString()}</pubDate>
+    <updated>${pubDate.toISOString()}</updated>
+    <published>${pubDate.toISOString()}</published>
+    <pubDate>${pubDate.toUTCString()}</pubDate>
     <author>
       ${item.authors.map(author => `<name>${author}</name>`)}
     </author>
