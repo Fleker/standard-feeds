@@ -4,6 +4,8 @@ import congress from './feeds/congress'
 import pokeminers from './feeds/pokeminers'
 import serebii from './feeds/serebii'
 import glassboro from './feeds/glassboro-govt'
+import pitman from './feeds/pitman-govt'
+import township from './feeds/washigton-township-govt'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
@@ -62,6 +64,7 @@ import wonderville from './feeds/wonderville'
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
 import { TodoCurator } from '../../lib/src/vtodo'
+import fetch from 'node-fetch'
 admin.initializeApp()
 
 const spacetime = require('spacetime')
@@ -90,6 +93,19 @@ export const rss_pokeminers = functions.https.onRequest(async (req, res) => {
   res.send(await toRss(await pokeminers.obtainFeed()))
 })
 
+export const proxy = functions.https.onRequest(async (req, res) => {
+  if (req.query.debug) {
+    res.setHeader('content-type', 'text/plain')
+  }
+  if (req.query.contentType) {
+    res.setHeader('content-type', req.query.contentType as string)
+  }
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  const url = req.query.url as string
+  const fetchres = await fetch(url)
+  res.send(await fetchres.text())
+})
+
 export const rss_fetch = functions.https.onRequest(async (req, res) => {
   res.setHeader('content-type', 'application/rss+xml')
   if (req.query.debug) {
@@ -107,6 +123,9 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
     glassboro: glassboro('glassboro'),
     glassboroboe: glassboro('glassboroboe'),
     rowan: glassboro('rowan'),
+    pitman: pitman('pitman'),
+    pitmanboe: pitman('pitmanboe'),
+    washingtontownship: township('township'),
   }
   const validFeeds = Object.keys(feedMap)
   const validFeedsRead: string[] = []
