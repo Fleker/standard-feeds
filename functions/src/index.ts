@@ -46,6 +46,7 @@ import msg from './feeds/msg'
 import musichallwilliamsburg from './feeds/musichallwilliamsburg'
 import nyminute from './feeds/nyminute'
 // import nypl from './feeds/nypl'
+import owl from './feeds/theowl'
 import philharmonic from './feeds/ny-philharmonic'
 import pokemonleague from './feeds/pokemonleague'
 import publictheater from './feeds/publictheater'
@@ -228,6 +229,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     nerdnite: eventbrite('littlefield-18046024060'),
     nyminute,
     // nypl,
+    owl,
     philharmonic,
     pokemonleague,
     publictheater,
