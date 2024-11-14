@@ -16,7 +16,7 @@ import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
 import arthouse from './feeds/arthouse-hotel'
 import barclays from './feeds/barclaycenter'
-import bookclubbar from './feeds/bookclubbar'
+// import bookclubbar from './feeds/bookclubbar'
 import bric from './feeds/bric'
 import brooklynsteel from './feeds/brooklynsteel'
 import carnegiehall from './feeds/carnegiehall'
@@ -199,7 +199,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     barclays,
     bellhouse: eventbrite('the-bell-house-17899492469'),
     beersdata: meetup('advertising-marketing-analysts'),
-    bookclubbar,
+    // bookclubbar,
     bric,
     brooklynsteel,
     carnegiehall,

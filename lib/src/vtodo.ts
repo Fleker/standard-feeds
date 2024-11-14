@@ -78,6 +78,18 @@ export interface Todo {
   ianaProp?: any
 }
 
+/**
+ * A Curator is a custom object that converts dynamic content
+ * into a feed.
+ */
+export interface TodoCurator {
+  /**
+   * Performs the process of grabbing site content and converting it to RSS.
+   */
+  obtainFeed: () => Promise<Todo[]>
+}
+
+
 export const todoToString = (todo: Todo): string => {
   const description = todo.description ? `\nDESCRIPTION:${sanitize(todo.description)}` : ''
   const completed = todo.completed ? `\nCOMPLETED:${dateFormat(todo.completed)}` : ''
