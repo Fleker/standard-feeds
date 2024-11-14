@@ -6,6 +6,11 @@ import serebii from './feeds/serebii'
 import glassboro from './feeds/glassboro-govt'
 import pitman from './feeds/pitman-govt'
 import township from './feeds/washigton-township-govt'
+import monroe from './feeds/township-monroe'
+import deptford from './feeds/township-deptford'
+import westdeptford from './feeds/township-deptfordwest'
+import franklin from './feeds/township-franklin'
+import mantua from './feeds/township-mantua'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
@@ -36,6 +41,7 @@ import intrepid from './feeds/intrepid'
 import irvingplaza from './feeds/irvingplaza'
 import kgbbar from './feeds/kgbbar'
 import kingstheatre from './feeds/kingstheatre'
+import leekduck from './feeds/leekduck'
 import lincolncenter from './feeds/lincolncenter'
 import littleisland from './feeds/littleisland'
 import livecode from './feeds/livecode-nyc'
@@ -50,6 +56,7 @@ import owl from './feeds/theowl'
 import philharmonic from './feeds/ny-philharmonic'
 import pokemonleague from './feeds/pokemonleague'
 import publictheater from './feeds/publictheater'
+import rocketlaunch from './feeds/rocketlaunch'
 import summerhudson from './feeds/summer-hudson'
 import summerstage from './feeds/summerstage'
 import sundaesauuce from './feeds/sundaesauuce'
@@ -121,12 +128,17 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
   })()
   // https://us-central1-redside-shiner.cloudfunctions.net/rss_fetch?f[]=glassboro&f[]=...
   const feedMap: Record<string, Rss.Curator> = {
+    deptford: deptford('township'),
+    franklin: franklin('township'),
     glassboro: glassboro('glassboro'),
     glassboroboe: glassboro('glassboroboe'),
+    mantua: mantua('township'),
+    monroe: monroe('township'),
     rowan: glassboro('rowan'),
     pitman: pitman('pitman'),
     pitmanboe: pitman('pitmanboe'),
     washingtontownship: township('township'),
+    westdeptford: westdeptford('township'),
   }
   const validFeeds = Object.keys(feedMap)
   const validFeedsRead: string[] = []
@@ -218,6 +230,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     irvingplaza,
     kgbbar,
     kingstheatre, 
+    leekduck,
     lincolncenter,
     littleisland,
     livecode,
@@ -233,6 +246,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     philharmonic,
     pokemonleague,
     publictheater,
+    rocketlaunch,
     summerhudson,
     summerstage,
     sundaesauuce,
