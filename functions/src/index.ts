@@ -12,6 +12,7 @@ import westdeptford from './feeds/township-deptfordwest'
 import franklin from './feeds/township-franklin'
 import mantua from './feeds/township-mantua'
 import woolwich from './feeds/township-woolwich'
+import eastgreenwich from './feeds/township-eastgreenwich'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
@@ -130,6 +131,7 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
   // https://us-central1-redside-shiner.cloudfunctions.net/rss_fetch?f[]=glassboro&f[]=...
   const feedMap: Record<string, Rss.Curator> = {
     deptford: deptford('township'),
+    eastgreenwich: eastgreenwich('township'),
     franklin: franklin('township'),
     glassboro: glassboro('glassboro'),
     glassboroboe: glassboro('glassboroboe'),
