@@ -11,6 +11,7 @@ import deptford from './feeds/township-deptford'
 import westdeptford from './feeds/township-deptfordwest'
 import franklin from './feeds/township-franklin'
 import mantua from './feeds/township-mantua'
+import woolwich from './feeds/township-woolwich'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
@@ -139,6 +140,7 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
     pitmanboe: pitman('pitmanboe'),
     washingtontownship: township('township'),
     westdeptford: westdeptford('township'),
+    woolwich: woolwich('township'),
   }
   const validFeeds = Object.keys(feedMap)
   const validFeedsRead: string[] = []
