@@ -70,6 +70,7 @@ import victoryden from './feeds/victoryden'
 import wallacelounge from './feeds/wallacelounge'
 import websterhall from './feeds/websterhall'
 import wonderville from './feeds/wonderville'
+import y92 from './feeds/y92'
 
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
@@ -264,6 +265,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     wallacelounge,
     websterhall,
     wonderville,
+    y92,
   }
   const validCalendars = Object.keys(calendarMap)
   const validCalendarsRead: string[] = []
