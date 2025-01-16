@@ -25,6 +25,7 @@ import carnegiehall from './feeds/carnegiehall'
 import caveat from './feeds/caveat'
 import cb7 from './feeds/cb7'
 import cityparks from './feeds/cityparks'
+import closer from './feeds/closer'
 import columbia from './feeds/columbia'
 // import coneyisland from './feeds/coney-island'
 // import courtyard from './feeds/concertsinthecourtyard'
@@ -69,6 +70,7 @@ import victoryden from './feeds/victoryden'
 // import theshed from './feeds/theshed'
 import wallacelounge from './feeds/wallacelounge'
 import websterhall from './feeds/websterhall'
+import wnyc from './feeds/wnyc'
 import wonderville from './feeds/wonderville'
 import y92 from './feeds/y92'
 
@@ -211,7 +213,8 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     caveat,
     cb7,
     cityparks,
-    closer: eventbrite('closer-53511938713'),
+    closer,
+    // closer: eventbrite('closer-53511938713'),
     // citywinery,
     columbia,
     // coneyisland,
@@ -264,6 +267,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     voicenyc: meetup('nyc-voice-assistant-meetup'),
     wallacelounge,
     websterhall,
+    wnyc,
     wonderville,
     y92,
   }
