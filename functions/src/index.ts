@@ -27,10 +27,12 @@ import cb7 from './feeds/cb7'
 import cityparks from './feeds/cityparks'
 import closer from './feeds/closer'
 import columbia from './feeds/columbia'
+import debbies from './feeds/debbies'
 // import coneyisland from './feeds/coney-island'
 // import courtyard from './feeds/concertsinthecourtyard'
 import django from './feeds/django'
 import downtownbrooklyn from './feeds/downtown-brooklyn'
+import drinkny from './feeds/drinkny'
 import elsewhere from './feeds/elsewhere'
 import eventbrite from './feeds/eventbrite'
 import foresthills from './feeds/forest-hill-stadium'
@@ -41,6 +43,7 @@ import grimmales from './feeds/grimmales'
 import hudsonyards from './feeds/hudsonyards'
 import ihuws from './feeds/iheart-uws'
 import intrepid from './feeds/intrepid'
+import irisharts from './feeds/irisharts'
 import irvingplaza from './feeds/irvingplaza'
 import kgbbar from './feeds/kgbbar'
 import kingstheatre from './feeds/kingstheatre'
@@ -219,9 +222,11 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     columbia,
     // coneyisland,
     // courtyard,
+    debbies,
     disconap: eventbrite('disco-nap-49115265943'),
     django,
     downtownbrooklyn,
+    drinkny,
     elsewhere,
     flutternyc: meetup('flutter-nyc'),
     foresthills,
@@ -235,6 +240,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     hudsonyards,
     ihuws,
     intrepid,
+    irisharts,
     irvingplaza,
     kgbbar,
     kingstheatre, 

@@ -16,7 +16,7 @@ function getTime(str: string) {
 const getEvents = {
   obtainFeed: async () => {
     const events: EventsFeed = {
-      calendarName: `Closer Events`,
+      calendarName: `Drink NY`,
       lastBuildDate: new Date(),
       icon: '',
       link: '',
@@ -24,33 +24,33 @@ const getEvents = {
       events: []
     }
 
-    const res = await fetch.default(`https://becloser.co/pages/members`)
+    const res = await fetch.default(`https://thinknydrinkny.com/festivals/`)
     const body = await res.text()
     // console.log(body)
     const $ = cheerio.load(body)
 
-    const items = $('.product-item')
+    const items = $('.fl-node-content.fl-col-content:has(img)').slice(1)
     for (let i = 0; i < items.length; i++) {
       const item = $(items[i])
-      const url = $(item).find('.product-link').attr('href')
-      const title = $(item).find('.product-item__title').text()
-      const tsplit = title.split('|')
-      const summary = tsplit[0].trim()
-      // 1.17.25 => 1-17-2025
-      const date = tsplit[1].replace('.', '-').replace('.', '-20')
-      const description = $(item).find('.product-item__price')
-        .text()
-        .trim()
+      const textEl = $(item).find('p').html()
+        .replace('<strong>', '')
+        .replace('</strong>', '')
         .replace(/\n/g, '')
-        .replace(/\s+/g, ' ')
-      const dtstart = getTime(date)
-      const dtend = new Date(dtstart.getTime() + 1000 * 60 * 60 * 3)
+        .split('<br>')
+      console.log(textEl)
+      const summary = textEl[0]
+      const dtstart = getTime(`${textEl[1]} 1PM`)
+      const dtend = new Date(dtstart.getTime() + 1000 * 60 * 60 * 4)
+      const location = textEl[2].replace('at the ', '')
+      const url = $(item).find('a').attr('href')
+      const description = url
       events.events.push({
         summary,
         dtstart,
         dtend,
-        description: `${description} https://becloser.co${url}`,
-        url: `https://becloser.co${url}`
+        description,
+        url,
+        location,
       })
     }
 
