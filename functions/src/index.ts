@@ -13,6 +13,9 @@ import franklin from './feeds/township-franklin'
 import mantua from './feeds/township-mantua'
 import woolwich from './feeds/township-woolwich'
 import eastgreenwich from './feeds/township-eastgreenwich'
+import woodbury from './feeds/township-woodbury'
+import logan from './feeds/township-logan'
+import elk from './feeds/township-elk'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
@@ -138,9 +141,11 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
   const feedMap: Record<string, Rss.Curator> = {
     deptford: deptford('township'),
     eastgreenwich: eastgreenwich('township'),
+    elk: elk('township'),
     franklin: franklin('township'),
     glassboro: glassboro('glassboro'),
     glassboroboe: glassboro('glassboroboe'),
+    logan: logan('township'),
     mantua: mantua('township'),
     monroe: monroe('township'),
     rowan: glassboro('rowan'),
@@ -148,6 +153,7 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
     pitmanboe: pitman('pitmanboe'),
     washingtontownship: township('township'),
     westdeptford: westdeptford('township'),
+    woodbury: woodbury('township'),
     woolwich: woolwich('township'),
   }
   const validFeeds = Object.keys(feedMap)
