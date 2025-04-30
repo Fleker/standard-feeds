@@ -71,6 +71,7 @@ import summerstage from './feeds/summerstage'
 import sundaesauuce from './feeds/sundaesauuce'
 import timeoutmarket from './feeds/timeoutmarket'
 import townhall from './feeds/thetownhall'
+import trakt from './feeds/trakt'
 import triadtheater from './feeds/triad-theater'
 import victoryden from './feeds/victoryden'
 // import theshed from './feeds/theshed'
@@ -272,6 +273,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     sundaesauuce,
     timeoutmarket,
     townhall,
+    trakt,
     triadtheater,
     // theshed,
     ukraineinstitute: eventbrite('ukrainian-institute-of-america-8458592558'),
