@@ -9,10 +9,10 @@
 
  const defaultTimeZone = 'America/New_York'
 
-  function getTime(str: string) {
+function getTime(str: string) {
   const spacetimeDate = spacetime(str, defaultTimeZone)
-   return new Date(spacetimeDate.toLocalDate())
- }
+  return new Date(spacetimeDate.toLocalDate())
+}
 
  export default {
    obtainFeed: async () => {

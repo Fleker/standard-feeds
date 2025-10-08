@@ -69,6 +69,7 @@ import rocketlaunch from './feeds/rocketlaunch'
 import summerhudson from './feeds/summer-hudson'
 import summerstage from './feeds/summerstage'
 import sundaesauuce from './feeds/sundaesauuce'
+import tcgpocket from './feeds/tcgpocket'
 import timeoutmarket from './feeds/timeoutmarket'
 import townhall from './feeds/thetownhall'
 import trakt from './feeds/trakt'
@@ -271,6 +272,7 @@ export const ical_fetch = functions.https.onRequest(async (req, res) => {
     summerhudson,
     summerstage,
     sundaesauuce,
+    tcgpocket,
     timeoutmarket,
     townhall,
     trakt,
