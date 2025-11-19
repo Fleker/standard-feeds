@@ -156,6 +156,7 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
     pitmanboe: pitman('pitmanboe'),
     washingtontownship: township('township'),
     westdeptford: westdeptford('township'),
+    westdeptfordboe: westdeptford('school'),
     woodbury: woodbury('township'),
     woolwich: woolwich('township'),
   }
