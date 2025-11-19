@@ -5,8 +5,8 @@
 const cheerio = require('cheerio')
 import * as fetch from 'node-fetch'
 import { Curator, RssArticle, RssFeed } from './rss';
+import apiKey from './key-google-drive'
 
-const apiKey = 'AIzaSyDC7zM6awmbD9b_57xIuuvnlDnWEWR7teI'
 interface DriveFileList {
   kind: 'drive#fileList'
   incompleteSearch: boolean
@@ -32,12 +32,12 @@ function downloadUrl(fileId: string) {
 async function getMinutesFeed(): Promise<RssArticle[]> {
   // https://drive.google.com/drive/folders/0B-l-QWJCLVkhdW52OHpZWFhLbm8?resourcekey=0-mbjKln7-ZtBHmHijO_ZIPg
   const driveFolders = [
-    // Council Minutes 2023
-    '16BsP0MfJhPe1WEekmYiTNYpZgBycV-Yc',
-    // Planning Board 2024
-    '1nIHJPJNQakfWCHxOpeqb4BuWQE-4-Cnt',
-    // Council Minutes 2024
-    '1r1I_wVdaH9uEjGOJZJM3EkI0dBjQFNOM',
+    // Council Minutes 2025
+    '1qHXcZHQQDI1tzIkoO0DyINKSK9xCHqZo',
+    // Planning Board 2025
+    '1BuziV_Qn9X6JiVOFVLHUvouWdKwhLvba',
+    // Council Minutes 2025
+    '1qHXcZHQQDI1tzIkoO0DyINKSK9xCHqZo',
   ]
   const articles: RssArticle[] = []
   for (const folder of driveFolders) {
