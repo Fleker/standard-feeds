@@ -16,6 +16,7 @@ import eastgreenwich from './feeds/township-eastgreenwich'
 import woodbury from './feeds/township-woodbury'
 import logan from './feeds/township-logan'
 import elk from './feeds/township-elk'
+import njLeg from './feeds/legislature-nj'
 
 import {Curator, toString} from './feeds/ical'
 import angelika from './feeds/angelika'
@@ -151,6 +152,7 @@ export const rss_fetch = functions.https.onRequest(async (req, res) => {
     logan: logan('township'),
     mantua: mantua('township'),
     monroe: monroe('township'),
+    njLeg: njLeg(),
     rowan: glassboro('rowan'),
     pitman: pitman('pitman'),
     pitmanboe: pitman('pitmanboe'),
