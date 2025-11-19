@@ -70,6 +70,54 @@ async function parseBoroMinutes(): Promise<RssArticle[]> {
   return posts
 }
 
+interface Link {
+  link: string
+  title: string
+}
+
+async function fetchBoeMinutes(year1: number, year2: number): Promise<Link[]> {
+  const res = await fetch.default(`https://www.deptfordschools.org/pages_inc/meeting_minutes.jsp?dir=${year1}-${year2}_Meeting_Minutes`)
+  const html = await res.text()
+  const $ = cheerio.load(html)
+  const domain = 'https://www.deptfordschools.org/'
+  const rows = $('ul.fbList a')
+  const links: Link[] = []
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i]
+    links.push({
+      link: `${domain}${$(row).attr('href')}`,
+      title: $(row).text().trim() as string
+    })
+  }
+  return links
+}
+
+async function parseBoeMinutes(): Promise<RssArticle[]> {
+  const yearNow = new Date().getFullYear()
+  const links: Link[] = []
+  const posts: RssArticle[] = []
+
+  const lastYearMinutes = await fetchBoeMinutes(yearNow - 1, yearNow)
+  links.push(...lastYearMinutes)
+
+  const currentYearMinutes = await fetchBoeMinutes(yearNow, yearNow + 1)
+  links.push(...currentYearMinutes)
+
+  for (const link of links) {
+    const date = new Date(link.title.split(' ')[0])
+    posts.push({
+      authors: ['Deptford School District'],
+      guid: `${date.toDateString()}`,
+      link: link.link,
+      content: `View minutes at ${link.link}`,
+      pubDate: date,
+      title: `Deptford School District Minutes ${link.title}`
+    })
+  }
+  return posts
+}
+
 const getFeed = (key: string) => {
   return {
     obtainFeed: async () => {
@@ -84,6 +132,10 @@ const getFeed = (key: string) => {
       if (key === 'township') {
         const township = await parseBoroMinutes()
         rss.entries.push(...township)
+      }
+      if (key === 'school') {
+        const school = await parseBoeMinutes()
+        rss.entries.push(...school)
       }
   
       return rss
